@@ -181,7 +181,7 @@ double CkP = 1;
 double CkI = 0;
 double CkD = 0;
 
-int CdesiredValue = -58;
+int CdesiredValue = -75;
 
 int Cerror; //sensorValue - desiredValue (deltaX) -- Positional
 int CprevError = 0; //Position 20 ms ago

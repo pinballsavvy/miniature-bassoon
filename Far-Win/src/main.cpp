@@ -309,12 +309,128 @@ void autonomous(void) {
   //start task
   vex::task randomName(drivePID);
 
-   //drive onto roller first
+  //drive to roller first
   resetDriveSensor = true;
-  desiredValue = 300;
+  desiredValue = 1200;
   desiredTurnValue = 0;
+  vex::task::sleep(1000);
+
+/*
+  //start guiude
+  Intake.setVelocity(40,percent);
+  Intake.spinFor(reverse,1,turns);
+  Intake.setVelocity(100,percent);
+*/
+
+  //turn towards roller
+  resetDriveSensor = true;
+  desiredValue = 0;
+  desiredTurnValue = 1200;
+  vex::task::sleep(1000);
+
+  //drive onto roller first
+  resetDriveSensor = true;
+  desiredValue = 500;
+  desiredTurnValue = 0;
+  vex::task::sleep(300);
+
+  //spin roller
+  Intake.setVelocity(30,percent);
+  Intake.spinFor(reverse,-0.3,turns);
+  Intake.setVelocity(100,percent);
+
+  //drive away from roller first
+  resetDriveSensor = true;
+  desiredValue = -500;
+  desiredTurnValue = 0;
+  vex::task::sleep(700);
+
+  //turn towards disks
+  resetDriveSensor = true;
+  desiredValue = 0;
+  desiredTurnValue = 1800;
+  vex::task::sleep(1000);
+
+  //intake on
+  Intake.spin(forward);
+
+  //drive to disks
+  resetDriveSensor = true;
+  desiredValue = 1900;
+  desiredTurnValue = 0;
+  vex::task::sleep(1100);
+
+
+  //turn towards goal
+  resetDriveSensor = true;
+  desiredValue = 0;
+  desiredTurnValue = -1385;
+  vex::task::sleep(1300);
+
+  //intake on
+  Intake.stop();
+
+  //drive to goal
+  resetDriveSensor = true;
+  desiredValue = -350;
+  desiredTurnValue = 0;
+  vex::task::sleep(1000);
+
+  //shoot
+  cataclang.set(true);
+  shootarm();
+  cataclang.set(false);
+
+  //drive away from goal
+  resetDriveSensor = true;
+  desiredValue = 350;
+  desiredTurnValue = 0;
+  vex::task::sleep(800);
+
+  //turn towards disks
+  resetDriveSensor = true;
+  desiredValue = 0;
+  desiredTurnValue = 1385;
+  vex::task::sleep(1000);
+
+  //intake on
+  Intake.spin(forward);
+
+  //drive to disks
+  resetDriveSensor = true;
+  desiredValue = 2000;
+  desiredTurnValue = 0;
+  vex::task::sleep(1000);
+
+  //drive to goal
+  resetDriveSensor = true;
+  desiredValue = -1000;
+  desiredTurnValue = 0;
+  vex::task::sleep(1000);
+
+  //turn towards goal
+  resetDriveSensor = true;
+  desiredValue = 0;
+  desiredTurnValue = -1385;
+  vex::task::sleep(1300);
+
+  //shoot
+  cataclang.set(true);
+  shootarm();
+  cataclang.set(false);
+
+
+
+
+
+
   
-  
+  /*
+  Intake.setVelocity(30,percent);
+  Intake.spinFor(reverse,-0.3,turns);
+  Intake.setVelocity(100,percent);
+
+
   vex::task::sleep(1000);
 
   //spin roller
